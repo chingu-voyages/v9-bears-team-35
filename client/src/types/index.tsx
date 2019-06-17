@@ -5,6 +5,11 @@ export interface User {
   name: string;
 }
 
+export interface Login {
+  logged: boolean;
+  user: User;
+}
+
 export interface Challenge {
   id: string;
   title: string;
@@ -30,8 +35,9 @@ export interface FilterOptions {
 }
 
 export interface Store {
-  login: { logged: boolean; user: User };
-  highestRatedList: Project;
+  // uncomment next, when actions and reducers are created
+  // login: { logged: boolean; user: User };
+  // highestRatedList: Project;
   filteredList: Project[];
   filterOptions: FilterOptions;
 }
@@ -42,12 +48,10 @@ export interface Action {
   type: string;
 }
 
-export interface SetFilterOptions {
-  type: Action;
-  filterOptions: FilterOptions;
+export interface UpdateFilteredList extends Action {
+  filteredList: Project[];
 }
 
-export interface UpdateFilteredList {
-  type: Action;
-  filteredList: Project[];
+export interface SetFilterOptions extends Action {
+  filterOptions: FilterOptions;
 }
