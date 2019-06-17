@@ -16,11 +16,8 @@ function filterOptions(
   state: FilterOptions = initFilterOptions,
   action: SetFilterOptions
 ) {
-  console.log('filter options');
-  console.log(action);
   switch (action.type) {
     case SET_FILTER_OPTIONS:
-      console.log('changed');
       return action.filterOptions;
     default:
       return state;
@@ -28,7 +25,6 @@ function filterOptions(
 }
 
 function filteredList(state: Project[] = [], action: UpdateFilteredList) {
-  console.log(action);
   switch (action.type) {
     case UPDATE_FILTERED_LIST:
       return action.filteredList;
